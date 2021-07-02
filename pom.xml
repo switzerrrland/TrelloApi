@@ -59,26 +59,7 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.jsonschema2pojo</groupId>
-                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-                <version>${jsonschema2pojo-maven-plugin.version}</version>
-                <configuration>
-                    <sourceDirectory>${project.basedir}/src/main/resources/schemes</sourceDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <targetPackage>beans</targetPackage>
-                    <addCompileSourceRoot>true</addCompileSourceRoot>
-                    <sourceType>json</sourceType>
-                    <annotationStyle>gson</annotationStyle>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
