@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import static utils.Constants.*;
-import static utils.PropertiesReader.getProperty;
 import static core.LabelServiceObject.getLabelObject;
 import static core.LabelServiceObject.trelloLabelRequestBuilder;
 import static core.BasicTrelloServiceObject.goodResponseSpecification;
@@ -71,10 +70,10 @@ public class LabelStep {
                 .setId(labelId);
         switch (field) {
             case NAME:
-                builder.setName(getProperty("newLabelName"));
+                builder.setName(NEW_LABEL_NAME);
                 break;
             case COLOR:
-                builder.setColor(getProperty("newLabelColor"));
+                builder.setColor(NEW_LABEL_COLOR);
                 break;
             default:
                 break;

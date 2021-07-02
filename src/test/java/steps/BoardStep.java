@@ -6,7 +6,6 @@ import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.qameta.allure.Step;
 import static utils.Constants.*;
-import static utils.PropertiesReader.getProperty;
 import static core.BoardServiceObject.getBoardObject;
 import static core.BoardServiceObject.trelloBoardRequestBuilder;
 import static core.BasicTrelloServiceObject.goodResponseSpecification;
@@ -58,13 +57,13 @@ public class BoardStep {
                 .setId(boardId);
         switch (field) {
             case NAME:
-                builder.setName(getProperty("newBoardName"));
+                builder.setName(NEW_BOARD_NAME);
                 break;
             case BOARD_CLOSED:
-                builder.setClosed(getProperty("boardClosed"));
+                builder.setClosed(IS_BOARD_CLOSED);
                 break;
             case BOARD_DESC:
-                builder.setDesc(getProperty("boardDescription"));
+                builder.setDesc(BOARD_DESCRIPTION);
                 break;
             default:
                 break;
@@ -77,5 +76,4 @@ public class BoardStep {
                 .spec(goodResponseSpecification());
         return getBoardObject(response);
     }
-
 }

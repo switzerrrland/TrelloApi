@@ -97,7 +97,8 @@ public class Label {
             return false;
         }
         Label rhs = ((Label) other);
-        return ((((((this.name == rhs.name)||((this.name!= null)&&this.name.equals(rhs.name)))&&((this.id == rhs.id)||((this.id!= null)&&this.id.equals(rhs.id))))&&((this.idBoard == rhs.idBoard)||((this.idBoard!= null)&&this.idBoard.equals(rhs.idBoard))))&&((this.color == rhs.color)||((this.color!= null)&&this.color.equals(rhs.color)))));
+        return ((((((this.name == rhs.name)||((this.name!= null)&&this.name.equals(rhs.name)))&&((this.id == rhs.id)
+                ||((this.id!= null)&&this.id.equals(rhs.id))))&&((this.idBoard == rhs.idBoard)||((this.idBoard!= null)
+                &&this.idBoard.equals(rhs.idBoard))))&&((this.color == rhs.color)||((this.color!= null)&&this.color.equals(rhs.color)))));
     }
-
 }

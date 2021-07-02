@@ -4,9 +4,7 @@ import org.testng.annotations.Test;
 import steps.LabelStep;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static utils.Constants.COLOR;
-import static utils.Constants.NAME;
-import static utils.PropertiesReader.getProperty;
+import static utils.Constants.*;
 
 public class LabelTests extends TrelloBasicTest {
     @Test(dataProvider = "testLabelDataProvider", dataProviderClass = DataProviderForTrello.class)
@@ -33,7 +31,7 @@ public class LabelTests extends TrelloBasicTest {
         boardId = boardStep.createBoardInTrello(board);
         String labelId = labelStep.createLabelInBoard(boardId, label);
         Label labelToUpdate = labelStep.updateLabelFieldInTrello(labelId, NAME);
-        assertThat(labelToUpdate.getName(), equalTo(getProperty("newLabelName")));
+        assertThat(labelToUpdate.getName(), equalTo(NEW_LABEL_NAME));
     }
 
     @Test(dataProvider = "testLabelDataProvider", dataProviderClass = DataProviderForTrello.class)
@@ -42,6 +40,6 @@ public class LabelTests extends TrelloBasicTest {
         boardId = boardStep.createBoardInTrello(board);
         String labelId = labelStep.createLabelInBoard(boardId, label);
         Label labelToUpdate = labelStep.updateLabelFieldInTrello(labelId, COLOR);
-        assertThat(labelToUpdate.getColor(), equalTo(getProperty("newLabelColor")));
+        assertThat(labelToUpdate.getColor(), equalTo(NEW_LABEL_COLOR));
     }
 }

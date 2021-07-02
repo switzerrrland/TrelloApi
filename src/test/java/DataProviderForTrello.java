@@ -2,13 +2,13 @@ import beans.Board;
 import beans.Label;
 import beans.List;
 import org.testng.annotations.DataProvider;
-import static utils.PropertiesReader.getProperty;
+import static utils.Constants.*;
 
 public class DataProviderForTrello {
     @DataProvider
     public Object[][] testBoardDataProvider() {
         Board trelloBoard = new Board();
-        trelloBoard.setName(getProperty("boardName"));
+        trelloBoard.setName(BOARD_NAME);
         return new Object[][]{
                 {trelloBoard}
         };
@@ -17,10 +17,10 @@ public class DataProviderForTrello {
     @DataProvider
     public Object[][] testLabelDataProvider() {
         Board trelloBoard = new Board();
-        trelloBoard.setName(getProperty("boardName"));
+        trelloBoard.setName(BOARD_NAME);
         Label label = new Label();
-        label.setColor(getProperty("labelColor"));
-        label.setName(getProperty("labelName"));
+        label.setColor(LABEL_COLOR);
+        label.setName(LABEL_NAME);
         return new Object[][]{
                 {trelloBoard, label}
         };
@@ -29,9 +29,9 @@ public class DataProviderForTrello {
     @DataProvider
     public Object[][] testListDataProvider() {
         Board trelloBoard = new Board();
-        trelloBoard.setName(getProperty("boardName"));
+        trelloBoard.setName(BOARD_NAME);
         List list = new List();
-        list.setName(getProperty("listName"));
+        list.setName(LIST_NAME);
         return new Object[][]{
                 {trelloBoard, list}
         };

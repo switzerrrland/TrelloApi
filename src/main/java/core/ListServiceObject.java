@@ -9,11 +9,9 @@ import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-
 import static utils.Constants.*;
 import static utils.PropertiesReader.getProperty;
 
@@ -80,5 +78,4 @@ public class ListServiceObject extends BasicTrelloServiceObject {
                 .setBaseUri(TRELLO_LIST_URI)
                 .build();
     }
-
 }
