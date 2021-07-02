@@ -18,7 +18,7 @@ import static utils.Constants.*;
 import static utils.PropertiesReader.getProperty;
 
 public class LabelServiceObject extends BasicTrelloServiceObject {
-    public static final URI TRELLO_LABEL_URI = URI.create(getProperty("testLabelUrl"));
+    public static final URI TRELLO_LABEL_URI = URI.create(getProperty("labelsUrl"));
 
     public LabelServiceObject(Method requestMethod, Map<String, String> queryParams, Map<String, String> pathParams) {
         super(requestMethod, queryParams, pathParams);
@@ -68,8 +68,8 @@ public class LabelServiceObject extends BasicTrelloServiceObject {
                 .given(requestSpecification()).log().all()
                 .pathParams(pathParams)
                 .queryParams(queryParams)
-                .queryParam(KEY, getProperty("testAccessKey"))
-                .queryParam(TOKEN, getProperty("testAccessToken"))
+                .queryParam(KEY, getProperty("apiKey"))
+                .queryParam(TOKEN, getProperty("token"))
                 .request(requestMethod, getPathParamsStr())
                 .prettyPeek();
     }

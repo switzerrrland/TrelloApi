@@ -1,5 +1,4 @@
 import beans.Board;
-import core.DataProviderForTrello;
 import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -8,35 +7,35 @@ import static utils.PropertiesReader.getProperty;
 
 public class BoardTests extends TrelloBasicTest {
     @Test(dataProvider = "testBoardDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testBoardCreation(Board board) {
+    public void createBoardTest(Board board) {
         boardId = boardStep.createBoardInTrello(board);
         Board createdBoard = boardStep.getBoardFromTrello(boardId);
         assertThat(createdBoard.getName(), equalTo(board.getName()));
     }
 
     @Test(dataProvider = "testBoardDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testBoardDeletion(Board board) {
+    public void deleteBoardTest(Board board) {
         boardId = boardStep.createBoardInTrello(board);
     }
 
     @Test(dataProvider = "testBoardDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testBoardDescUpdate(Board board) {
+    public void updateBoardDescriptionTest(Board board) {
         boardId = boardStep.createBoardInTrello(board);
         Board boardToUpdate = boardStep.updateBoardFieldInTrello(boardId, BOARD_DESC);
-        assertThat(boardToUpdate.getDesc(), equalTo(getProperty("testBoardDesc")));
+        assertThat(boardToUpdate.getDesc(), equalTo(getProperty("boardDescription")));
     }
 
     @Test(dataProvider = "testBoardDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testBoardClosedUpdate(Board board) {
+    public void closeBoardTest(Board board) {
         boardId = boardStep.createBoardInTrello(board);
         Board boardToUpdate = boardStep.updateBoardFieldInTrello(boardId, BOARD_CLOSED);
-        assertThat(boardToUpdate.getClosed().toString(), equalTo(getProperty("testBoardClosed")));
+        assertThat(boardToUpdate.getClosed().toString(), equalTo(getProperty("boardClosed")));
     }
 
     @Test(dataProvider = "testBoardDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testBoardNameUpdate(Board board) {
+    public void updateBoardNameTest(Board board) {
         boardId = boardStep.createBoardInTrello(board);
         Board boardToUpdate = boardStep.updateBoardFieldInTrello(boardId, NAME);
-        assertThat(boardToUpdate.getName(), equalTo(getProperty("testBoardNewName")));
+        assertThat(boardToUpdate.getName(), equalTo(getProperty("newBoardName")));
     }
 }

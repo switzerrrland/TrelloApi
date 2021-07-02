@@ -1,5 +1,3 @@
-package core;
-
 import beans.Board;
 import beans.Label;
 import beans.List;
@@ -10,7 +8,7 @@ public class DataProviderForTrello {
     @DataProvider
     public Object[][] testBoardDataProvider() {
         Board trelloBoard = new Board();
-        trelloBoard.setName(getProperty("testBoardName"));
+        trelloBoard.setName(getProperty("boardName"));
         return new Object[][]{
                 {trelloBoard}
         };
@@ -19,10 +17,10 @@ public class DataProviderForTrello {
     @DataProvider
     public Object[][] testLabelDataProvider() {
         Board trelloBoard = new Board();
-        trelloBoard.setName(getProperty("testBoardName"));
+        trelloBoard.setName(getProperty("boardName"));
         Label label = new Label();
-        label.setColor(getProperty("testLabelColor"));
-        label.setName(getProperty("testLabelName"));
+        label.setColor(getProperty("labelColor"));
+        label.setName(getProperty("labelName"));
         return new Object[][]{
                 {trelloBoard, label}
         };
@@ -31,9 +29,9 @@ public class DataProviderForTrello {
     @DataProvider
     public Object[][] testListDataProvider() {
         Board trelloBoard = new Board();
-        trelloBoard.setName(getProperty("testBoardName"));
+        trelloBoard.setName(getProperty("boardName"));
         List list = new List();
-        list.setName(getProperty("testListName"));
+        list.setName(getProperty("listName"));
         return new Object[][]{
                 {trelloBoard, list}
         };

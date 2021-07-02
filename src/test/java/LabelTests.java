@@ -1,6 +1,5 @@
 import beans.Board;
 import beans.Label;
-import core.DataProviderForTrello;
 import org.testng.annotations.Test;
 import steps.LabelStep;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,7 +10,7 @@ import static utils.PropertiesReader.getProperty;
 
 public class LabelTests extends TrelloBasicTest {
     @Test(dataProvider = "testLabelDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testLabelCreation(Board board, Label label) {
+    public void createLabelTest(Board board, Label label) {
         labelStep = new LabelStep();
         boardId = boardStep.createBoardInTrello(board);
         String labelId = labelStep.createLabelInBoard(boardId, label);
@@ -20,7 +19,7 @@ public class LabelTests extends TrelloBasicTest {
     }
 
     @Test(dataProvider = "testLabelDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testLabelDeletion(Board board, Label label) {
+    public void deleteLabelTest(Board board, Label label) {
         labelStep = new LabelStep();
         boardId = boardStep.createBoardInTrello(board);
         String labelId = labelStep.createLabelInBoard(boardId, label);
@@ -29,20 +28,20 @@ public class LabelTests extends TrelloBasicTest {
     }
 
     @Test(dataProvider = "testLabelDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testLabelNameUpdate(Board board, Label label) {
+    public void updateLabelNameTest(Board board, Label label) {
         labelStep = new LabelStep();
         boardId = boardStep.createBoardInTrello(board);
         String labelId = labelStep.createLabelInBoard(boardId, label);
         Label labelToUpdate = labelStep.updateLabelFieldInTrello(labelId, NAME);
-        assertThat(labelToUpdate.getName(), equalTo(getProperty("testLabelNewName")));
+        assertThat(labelToUpdate.getName(), equalTo(getProperty("newLabelName")));
     }
 
     @Test(dataProvider = "testLabelDataProvider", dataProviderClass = DataProviderForTrello.class)
-    public void testLabelColorUpdate(Board board, Label label) {
+    public void updateLabelColorTest(Board board, Label label) {
         labelStep = new LabelStep();
         boardId = boardStep.createBoardInTrello(board);
         String labelId = labelStep.createLabelInBoard(boardId, label);
         Label labelToUpdate = labelStep.updateLabelFieldInTrello(labelId, COLOR);
-        assertThat(labelToUpdate.getColor(), equalTo(getProperty("testLabelNewColor")));
+        assertThat(labelToUpdate.getColor(), equalTo(getProperty("newLabelColor")));
     }
 }

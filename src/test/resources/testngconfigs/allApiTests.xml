@@ -2,7 +2,9 @@
 <suite name="allTestsSuite">
     <test name="allTests">
         <classes>
-            <class name="TrelloBasicTest"/>
+            <class name="BoardTests"/>
+            <class name="LabelTests"/>
+            <class name="ListTests"/>
         </classes>
     </test>
 </suite>

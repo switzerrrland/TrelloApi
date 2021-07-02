@@ -71,10 +71,10 @@ public class LabelStep {
                 .setId(labelId);
         switch (field) {
             case NAME:
-                builder.setName(getProperty("testLabelNewName"));
+                builder.setName(getProperty("newLabelName"));
                 break;
             case COLOR:
-                builder.setColor(getProperty("testLabelNewColor"));
+                builder.setColor(getProperty("newLabelColor"));
                 break;
             default:
                 break;

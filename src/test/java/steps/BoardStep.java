@@ -58,13 +58,13 @@ public class BoardStep {
                 .setId(boardId);
         switch (field) {
             case NAME:
-                builder.setName(getProperty("testBoardNewName"));
+                builder.setName(getProperty("newBoardName"));
                 break;
             case BOARD_CLOSED:
-                builder.setClosed(getProperty("testBoardClosed"));
+                builder.setClosed(getProperty("boardClosed"));
                 break;
             case BOARD_DESC:
-                builder.setDesc(getProperty("testBoardDesc"));
+                builder.setDesc(getProperty("boardDescription"));
                 break;
             default:
                 break;

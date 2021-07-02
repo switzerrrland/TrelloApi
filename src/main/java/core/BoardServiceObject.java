@@ -16,7 +16,7 @@ import static utils.Constants.*;
 import static utils.PropertiesReader.getProperty;
 
 public class BoardServiceObject extends BasicTrelloServiceObject {
-    public static final URI TRELLO_BOARD_URI = URI.create(getProperty("testBoardUrl"));
+    public static final URI TRELLO_BOARD_URI = URI.create(getProperty("boardsUrl"));
 
     public BoardServiceObject(Method requestMethod, Map<String, String> queryParams, Map<String, String> pathParams) {
         super(requestMethod, queryParams, pathParams);
@@ -66,8 +66,8 @@ public class BoardServiceObject extends BasicTrelloServiceObject {
                 .given(requestSpecification()).log().all()
                 .pathParams(pathParams)
                 .queryParams(queryParams)
-                .queryParam(KEY, getProperty("testAccessKey"))
-                .queryParam(TOKEN, getProperty("testAccessToken"))
+                .queryParam(KEY, getProperty("apiKey"))
+                .queryParam(TOKEN, getProperty("token"))
                 .request(requestMethod, getPathParamsStr())
                 .prettyPeek();
     }
